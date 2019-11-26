@@ -11,12 +11,24 @@ const PREFIX = "R";
 
 
 				// Events
-
 				// Ready
 
 client.on("ready",  () => {
 	console.log("Beep boop");
 });
+
+				// Rich Presence
+
+client.on('ready', () => {
+    client.user.setStatus('available')
+    client.user.setPresence({
+        game: {
+            name: 'Beep boop'
+        }
+    });
+});
+
+				// Tacos
 
 client.on("message", message => {
 	if(message.content[0] === PREFIX) {
@@ -25,8 +37,6 @@ client.on("message", message => {
 		}
 	}
 });
-
-
 
 				// Ping
 
@@ -45,6 +55,9 @@ client.on("message", message => {
 	if(message.content[0] === PREFIX) {
 		if(message.content === "R9 TEST"){
 			message.channel.send("TEST");
+			message.author.createDM().then(channel => {
+				channel.send("test");
+			});
 		}
 	}
 });
@@ -61,6 +74,13 @@ client.on("message", message => {
 // 	}
 // })
 
+				// DM New membre
+
+client.on("guildMemberAdd", member => {
+	member.createDM().then(channel => {
+		return channel.send ("Bienvenue ! " + member.displayName);
+	}).catch(console.error);
+})
 
 				// Connexion
 

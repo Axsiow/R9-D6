@@ -5,7 +5,7 @@ const Discord = require("discord.js")
 				// Variable
 
 const client = new Discord.Client();
-const PREFIX = "R";
+const PREFIX = "r";
 // const EPSITIER = client.channels("514065264837394442");
 // const condamné = client.channels("648864507342618635");
 
@@ -32,7 +32,7 @@ client.on('ready', () => {
 
 client.on("message", message => {
 	if(message.content[0] === PREFIX) {
-		if(message.content === "R9 TACOS ?"){
+		if(message.content === "r tacos ?"){
 			message.reply("LE TACOS C'EST GRENOBLOIS");
 		}
 	}
@@ -42,9 +42,20 @@ client.on("message", message => {
 
 client.on("message", message => {
 	if(message.content[0] === PREFIX) {
-		if(message.content === "R9 ping"){
+		if(message.content === "r ping"){
 			// condamné.send("test");
 			message.reply("pong");
+		}
+	}
+});
+
+				// Profil Picture
+
+client.on('message', message => {
+	if(message.content[0] === PREFIX) {
+		if (message.content === "r pp") {
+			// Send the user's avatar URL
+			message.reply(message.author.avatarURL);
 		}
 	}
 });
@@ -53,10 +64,10 @@ client.on("message", message => {
 
 client.on("message", message => {
 	if(message.content[0] === PREFIX) {
-		if(message.content === "R9 TEST"){
-			message.channel.send("TEST");
+		if(message.content === "r test"){
+			message.channel.send("OK BOOMER");
 			message.author.createDM().then(channel => {
-				channel.send("test");
+				channel.send("https://tenor.com/view/ok-boomer-universal-pictures-gif-15503541");
 			});
 		}
 	}
